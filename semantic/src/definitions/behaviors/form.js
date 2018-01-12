@@ -252,7 +252,6 @@ $.fn.form = function(parameters) {
           bracketedRule: function(rule) {
             return (rule.type && rule.type.match(settings.regExp.bracket));
           },
-<<<<<<< HEAD
           shorthandFields: function(fields) {
             var
               fieldKeys = Object.keys(fields),
@@ -264,8 +263,6 @@ $.fn.form = function(parameters) {
           shorthandRules: function(rules) {
             return (typeof rules == 'string' || $.isArray(rules));
           },
-=======
->>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
           empty: function($field) {
             if(!$field || $field.length === 0) {
               return true;
@@ -417,7 +414,6 @@ $.fn.form = function(parameters) {
                 : 'keyup'
             ;
           },
-<<<<<<< HEAD
           fieldsFromShorthand: function(fields) {
             var
               fullFields = {}
@@ -435,8 +431,6 @@ $.fn.form = function(parameters) {
             });
             return fullFields;
           },
-=======
->>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
           prompt: function(rule, field) {
             var
               ruleName      = module.get.ruleName(rule),
@@ -487,29 +481,9 @@ $.fn.form = function(parameters) {
               }
               else {
                 // 2.x
-<<<<<<< HEAD
                 if(parameters.fields && module.is.shorthandFields(parameters.fields)) {
                   parameters.fields = module.get.fieldsFromShorthand(parameters.fields);
                 }
-=======
-                if(parameters.fields) {
-                  ruleKeys = Object.keys(parameters.fields);
-                  if( typeof parameters.fields[ruleKeys[0]] == 'string' || $.isArray(parameters.fields[ruleKeys[0]]) ) {
-                    $.each(parameters.fields, function(name, rules) {
-                      if(typeof rules == 'string') {
-                        rules = [rules];
-                      }
-                      parameters.fields[name] = {
-                        rules: []
-                      };
-                      $.each(rules, function(index, rule) {
-                        parameters.fields[name].rules.push({ type: rule });
-                      });
-                    });
-                  }
-                }
-
->>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
                 settings   = $.extend(true, {}, $.fn.form.settings, parameters);
                 validation = $.extend({}, $.fn.form.settings.defaults, settings.fields);
                 module.verbose('Extending settings', validation, settings);
@@ -629,16 +603,11 @@ $.fn.form = function(parameters) {
                 }
                 else {
                   if(isRadio) {
-<<<<<<< HEAD
                     if(values[name] === undefined) {
                       values[name] = (isChecked)
                         ? true
                         : false
                       ;
-=======
-                    if(isChecked) {
-                      values[name] = value;
->>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
                     }
                   }
                   else if(isCheckbox) {
@@ -689,7 +658,6 @@ $.fn.form = function(parameters) {
         },
 
         add: {
-<<<<<<< HEAD
           // alias
           rule: function(name, rules) {
             module.add.field(name, rules);
@@ -728,8 +696,6 @@ $.fn.form = function(parameters) {
             }
             validation = $.extend({}, validation, newValidation);
           },
-=======
->>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
           prompt: function(identifier, errors) {
             var
               $field       = module.get.field(identifier),
@@ -782,7 +748,6 @@ $.fn.form = function(parameters) {
         },
 
         remove: {
-<<<<<<< HEAD
           rule: function(field, rule) {
             var
               rules = $.isArray(rule)
@@ -828,8 +793,6 @@ $.fn.form = function(parameters) {
           fields: function(fields) {
             module.remove.field(fields);
           },
-=======
->>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
           prompt: function(identifier) {
             var
               $field      = module.get.field(identifier),
@@ -994,11 +957,7 @@ $.fn.form = function(parameters) {
             if(typeof field == 'string') {
               module.verbose('Validating field', field);
               fieldName = field;
-<<<<<<< HEAD
               field     = validation[field];
-=======
-              field = validation[field];
->>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
             }
             var
               identifier    = field.identifier || fieldName,

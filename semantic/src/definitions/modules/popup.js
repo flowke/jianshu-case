@@ -128,11 +128,7 @@ $.fn.popup = function(parameters) {
             $offsetParent = module.get.offsetParent();
             $popup.removeClass(className.loading);
             if(settings.movePopup && module.has.popup() && module.get.offsetParent($popup)[0] !== $offsetParent[0]) {
-<<<<<<< HEAD
               module.debug('Moving popup to the same offset parent as target');
-=======
-              module.debug('Moving popup to the same offset parent as activating element');
->>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
               $popup
                 .detach()
                 .appendTo($offsetParent)
@@ -364,11 +360,7 @@ $.fn.popup = function(parameters) {
 
         hideAll: function() {
           $(selector.popup)
-<<<<<<< HEAD
             .filter('.' + className.popupVisible)
-=======
-            .filter('.' + className.visible)
->>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
             .each(function() {
               $(this)
                 .data(metadata.activator)
@@ -423,11 +415,7 @@ $.fn.popup = function(parameters) {
         },
         supports: {
           svg: function() {
-<<<<<<< HEAD
             return (typeof SVGGraphicsElement === 'undefined');
-=======
-            return (typeof SVGGraphicsElement === undefined);
->>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
           }
         },
         animate: {
@@ -998,7 +986,6 @@ $.fn.popup = function(parameters) {
           },
           close: function() {
             if(settings.hideOnScroll === true || (settings.hideOnScroll == 'auto' && settings.on != 'click')) {
-<<<<<<< HEAD
               module.bind.closeOnScroll();
             }
             if(settings.on == 'hover' && openedWithTouch) {
@@ -1031,30 +1018,6 @@ $.fn.popup = function(parameters) {
                 module.event.hideGracefully.call(element, event);
               })
             ;
-=======
-              $scrollContext
-                .one(module.get.scrollEvent() + elementNamespace, module.event.hideGracefully)
-              ;
-            }
-            if(settings.on == 'hover' && openedWithTouch) {
-              module.verbose('Binding popup close event to document');
-              $document
-                .on('touchstart' + elementNamespace, function(event) {
-                  module.verbose('Touched away from popup');
-                  module.event.hideGracefully.call(element, event);
-                })
-              ;
-            }
-            if(settings.on == 'click' && settings.closable) {
-              module.verbose('Binding popup close event to document');
-              $document
-                .on('click' + elementNamespace, function(event) {
-                  module.verbose('Clicked away from popup');
-                  module.event.hideGracefully.call(element, event);
-                })
-              ;
-            }
->>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
           }
         },
 
@@ -1115,11 +1078,7 @@ $.fn.popup = function(parameters) {
             return ($popup !== undefined && $popup.hasClass(className.fluid));
           },
           visible: function() {
-<<<<<<< HEAD
             return ($popup !== undefined && $popup.hasClass(className.popupVisible));
-=======
-            return ($popup !== undefined && $popup.hasClass(className.visible));
->>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
           },
           dropdown: function() {
             return $module.hasClass(className.dropdown);
@@ -1465,7 +1424,6 @@ $.fn.popup.settings = {
   },
 
   className   : {
-<<<<<<< HEAD
     active       : 'active',
     animating    : 'animating',
     dropdown     : 'dropdown',
@@ -1475,16 +1433,6 @@ $.fn.popup.settings = {
     position     : 'top left center bottom right',
     visible      : 'visible',
     popupVisible : 'visible'
-=======
-    active    : 'active',
-    animating : 'animating',
-    dropdown  : 'dropdown',
-    fluid     : 'fluid',
-    loading   : 'loading',
-    popup     : 'ui popup',
-    position  : 'top left center bottom right',
-    visible   : 'visible'
->>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
   },
 
   selector    : {
