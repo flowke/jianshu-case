@@ -94,7 +94,10 @@
 
 /* Menu Image */
 @menuImageMaxHeight: 2em;
+<<<<<<< HEAD
 @menuImageVerticalMargin: -(@menuImageMaxHeight - 1em) / 2;
+=======
+>>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
 
 /* Item Sub-Element */
 @itemElementFloat: none;
@@ -160,7 +163,11 @@
 @selectionIconZIndex: 3;
 @selectionIconHitbox: @selectionVerticalPadding;
 @selectionIconMargin: -@selectionIconHitbox;
+<<<<<<< HEAD
 @selectionIconPadding: @selectionIconHitbox / @dropdownIconSize;
+=======
+@selectionIconPadding: @selectionIconHitbox;
+>>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
 @selectionIconTransition: opacity @defaultDuration @defaultEasing;
 
 @selectionMenuBorderRadius: 0em 0em @borderRadius @borderRadius;
@@ -342,11 +349,18 @@
 
 /* Flyout Direction */
 @leftMenuDropdownIconFloat: left;
+<<<<<<< HEAD
 @leftMenuDropdownIconMargin: @itemLineHeightOffset 0em 0em 0em;
 
 /* Left */
 @leftSubMenuBorderRadius: @borderRadius;
 @leftSubMenuMargin: 0em @subMenuDistanceAway 0em 0em;
+=======
+@leftMenuDropdownIconMargin: @itemLineHeightOffset @itemElementDistance 0em 0em;
+
+/* Left */
+@leftSubMenuBorderRadius: @borderRadius;
+>>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
 
 /* Simple */
 @simpleTransitionDuration: @defaultDuration;
@@ -363,13 +377,25 @@
 
 @pointingArrowBackground: @white;
 @pointingArrowZIndex: 2;
+<<<<<<< HEAD
 @pointingArrowBoxShadow: -@menuBorderWidth -@menuBorderWidth 0px 0px @menuBorderColor;
+=======
+@pointingArrowBoxShadow: -@menuBorderWidth -@menuBorderWidth 0px @menuBorderWidth @menuBorderColor;
+>>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
 @pointingArrowSize: @relative7px;
 
 @pointingMenuDistance: @mini;
 @pointingMenuBorderRadius: @borderRadius;
+<<<<<<< HEAD
 @pointingArrowBoxShadow: -@menuBorderWidth -@menuBorderWidth 0px 0px @menuBorderColor;
 
 /* Pointing Upward */
 @pointingUpwardMenuBorderRadius: @borderRadius;
 @pointingUpwardArrowBoxShadow: @menuBorderWidth @menuBorderWidth 0px 0px @menuBorderColor;
+=======
+@pointingArrowBoxShadow: -@menuBorderWidth -@menuBorderWidth 0px @menuBorderWidth @menuBorderColor;
+
+/* Pointing Upward */
+@pointingUpwardMenuBorderRadius: @borderRadius;
+@pointingUpwardArrowBoxShadow: @menuBorderWidth @menuBorderWidth 0px @menuBorderWidth @menuBorderColor;
+>>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283

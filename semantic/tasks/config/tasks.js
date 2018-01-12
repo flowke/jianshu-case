@@ -144,10 +144,15 @@ module.exports = {
 
     /* Minified JS Settings */
     uglify: {
+<<<<<<< HEAD
       mangle   : true,
       output: {
         comments: 'some'
       }
+=======
+      mangle           : true,
+      preserveComments : 'some'
+>>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
     },
 
     /* Minified Concat CSS Settings */
@@ -160,10 +165,15 @@ module.exports = {
 
     /* Minified Concat JS */
     concatUglify: {
+<<<<<<< HEAD
       mangle   : true,
       output: {
         comments: 'some'
       }
+=======
+      mangle           : true,
+      preserveComments : false
+>>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
     }
 
   }

@@ -108,15 +108,36 @@ $.fn.modal = function(parameters) {
             var
               defaultSettings = {
                 debug      : settings.debug,
+<<<<<<< HEAD
                 dimmerName : 'modals'
               },
               dimmerSettings = $.extend(true, defaultSettings, settings.dimmerSettings)
             ;
+=======
+                dimmerName : 'modals',
+                duration   : {
+                  show     : settings.duration,
+                  hide     : settings.duration
+                }
+              },
+              dimmerSettings = $.extend(true, defaultSettings, settings.dimmerSettings)
+            ;
+            if(settings.inverted) {
+              dimmerSettings.variation = (dimmerSettings.variation !== undefined)
+                ? dimmerSettings.variation + ' inverted'
+                : 'inverted'
+              ;
+            }
+>>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
             if($.fn.dimmer === undefined) {
               module.error(error.dimmer);
               return;
             }
+<<<<<<< HEAD
             module.debug('Creating dimmer');
+=======
+            module.debug('Creating dimmer with settings', dimmerSettings);
+>>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
             $dimmable = $context.dimmer(dimmerSettings);
             if(settings.detachable) {
               module.verbose('Modal is detachable, moving content into dimmer');
@@ -125,6 +146,12 @@ $.fn.modal = function(parameters) {
             else {
               module.set.undetached();
             }
+<<<<<<< HEAD
+=======
+            if(settings.blurring) {
+              $dimmable.addClass(className.blurring);
+            }
+>>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
             $dimmer = $dimmable.dimmer('get dimmer');
           },
           id: function() {
@@ -277,7 +304,11 @@ $.fn.modal = function(parameters) {
             }
           },
           resize: function() {
+<<<<<<< HEAD
             if( $dimmable.dimmer('is active') && ( module.is.animating() || module.is.active() ) ) {
+=======
+            if( $dimmable.dimmer('is active') ) {
+>>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
               requestAnimationFrame(module.refresh);
             }
           }
@@ -298,7 +329,10 @@ $.fn.modal = function(parameters) {
             : function(){}
           ;
           module.refreshModals();
+<<<<<<< HEAD
           module.set.dimmerSettings();
+=======
+>>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
           module.showModal(callback);
         },
 
@@ -329,9 +363,12 @@ $.fn.modal = function(parameters) {
               module.hideOthers(module.showModal);
             }
             else {
+<<<<<<< HEAD
               if(settings.allowMultiple && settings.detachable) {
                 $module.detach().appendTo($dimmer);
               }
+=======
+>>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
               settings.onShow.call(element);
               if(settings.transition && $.fn.transition !== undefined && $module.transition('is supported')) {
                 module.debug('Showing modal with css animations');
@@ -535,15 +572,21 @@ $.fn.modal = function(parameters) {
         },
 
         cacheSizes: function() {
+<<<<<<< HEAD
           $module.addClass(className.loading);
           var
             scrollHeight = $module.prop('scrollHeight'),
             modalHeight  = $module.outerHeight()
+=======
+          var
+            modalHeight = $module.outerHeight()
+>>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
           ;
           if(module.cache === undefined || modalHeight !== 0) {
             module.cache = {
               pageHeight    : $(document).outerHeight(),
               height        : modalHeight + settings.offset,
+<<<<<<< HEAD
               scrollHeight  : scrollHeight + settings.offset,
               contextHeight : (settings.context == 'body')
                 ? $(window).height()
@@ -552,11 +595,19 @@ $.fn.modal = function(parameters) {
             module.cache.topOffset = -(module.cache.height / 2);
           }
           $module.removeClass(className.loading);
+=======
+              contextHeight : (settings.context == 'body')
+                ? $(window).height()
+                : $dimmable.height()
+            };
+          }
+>>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
           module.debug('Caching modal and container sizes', module.cache);
         },
 
         can: {
           fit: function() {
+<<<<<<< HEAD
             var
               contextHeight  = module.cache.contextHeight,
               verticalCenter = module.cache.contextHeight / 2,
@@ -570,6 +621,9 @@ $.fn.modal = function(parameters) {
               ? (startPosition + scrollHeight + paddingHeight < contextHeight)
               : (height + (paddingHeight * 2) < contextHeight)
             ;
+=======
+            return ( ( module.cache.height + (settings.padding * 2) ) < module.cache.contextHeight);
+>>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
           }
         },
 
@@ -612,6 +666,7 @@ $.fn.modal = function(parameters) {
               ;
             }
           },
+<<<<<<< HEAD
           dimmerSettings: function() {
             if($.fn.dimmer === undefined) {
               module.error(error.dimmer);
@@ -648,6 +703,8 @@ $.fn.modal = function(parameters) {
             }
             $context.dimmer('setting', dimmerSettings);
           },
+=======
+>>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
           screenHeight: function() {
             if( module.can.fit() ) {
               $body.css('height', '');
@@ -684,7 +741,11 @@ $.fn.modal = function(parameters) {
               $module
                 .css({
                   top: '',
+<<<<<<< HEAD
                   marginTop: module.cache.topOffset
+=======
+                  marginTop: -(module.cache.height / 2)
+>>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
                 })
               ;
             }
@@ -956,8 +1017,11 @@ $.fn.modal.settings = {
     active     : 'active',
     animating  : 'animating',
     blurring   : 'blurring',
+<<<<<<< HEAD
     inverted   : 'inverted',
     loading    : 'loading',
+=======
+>>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
     scrolling  : 'scrolling',
     undetached : 'undetached'
   }

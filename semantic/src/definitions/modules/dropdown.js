@@ -97,6 +97,7 @@ $.fn.dropdown = function(parameters) {
             module.setup.reference();
           }
           else {
+<<<<<<< HEAD
 
             module.setup.layout();
 
@@ -104,6 +105,9 @@ $.fn.dropdown = function(parameters) {
               module.change.values(settings.values);
             }
 
+=======
+            module.setup.layout();
+>>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
             module.refreshData();
 
             module.save.defaults();
@@ -168,7 +172,11 @@ $.fn.dropdown = function(parameters) {
         observe: {
           select: function() {
             if(module.has.input()) {
+<<<<<<< HEAD
               selectObserver.observe($module[0], {
+=======
+              selectObserver.observe($input[0], {
+>>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
                 childList : true,
                 subtree   : true
               });
@@ -389,16 +397,31 @@ $.fn.dropdown = function(parameters) {
           reference: function() {
             module.debug('Dropdown behavior was called on select, replacing with closest dropdown');
             // replace module reference
+<<<<<<< HEAD
             $module  = $module.parent(selector.dropdown);
             instance = $module.data(moduleNamespace);
             element  = $module.get(0);
             module.refresh();
             module.setup.returnedObject();
+=======
+            $module = $module.parent(selector.dropdown);
+            module.refresh();
+            module.setup.returnedObject();
+            // invoke method in context of current instance
+            if(methodInvoked) {
+              instance = module;
+              module.invoke(query);
+            }
+>>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
           },
           returnedObject: function() {
             var
               $firstModules = $allModules.slice(0, elementIndex),
+<<<<<<< HEAD
               $lastModules  = $allModules.slice(elementIndex + 1)
+=======
+              $lastModules = $allModules.slice(elementIndex + 1)
+>>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
             ;
             // adjust all modules to use correct reference
             $allModules = $firstModules.add($module).add($lastModules);
@@ -680,9 +703,13 @@ $.fn.dropdown = function(parameters) {
               if(module.is.multiple()) {
                 module.filterActive();
               }
+<<<<<<< HEAD
               if(query || (!query && module.get.activeItem().length == 0)) {
                 module.select.firstUnfiltered();
               }
+=======
+              module.select.firstUnfiltered();
+>>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
               if( module.has.allResultsFiltered() ) {
                 if( settings.onNoResults.call(element, searchTerm) ) {
                   if(settings.allowAdditions) {
@@ -916,6 +943,7 @@ $.fn.dropdown = function(parameters) {
           }
         },
 
+<<<<<<< HEAD
         change: {
           values: function(values) {
             if(!settings.allowAdditions) {
@@ -933,6 +961,8 @@ $.fn.dropdown = function(parameters) {
           }
         },
 
+=======
+>>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
         event: {
           change: function() {
             if(!internalChange) {
@@ -1101,6 +1131,7 @@ $.fn.dropdown = function(parameters) {
           select: {
             mutation: function(mutations) {
               module.debug('<select> modified, recreating menu');
+<<<<<<< HEAD
               var
                 isSelectMutation = false
               ;
@@ -1117,6 +1148,9 @@ $.fn.dropdown = function(parameters) {
                 module.set.selected();
                 module.observe.select();
               }
+=======
+              module.setup.select();
+>>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
             }
           },
           menu: {
@@ -1505,6 +1539,10 @@ $.fn.dropdown = function(parameters) {
                 // down arrow (open menu)
                 if(pressedKey == keys.downArrow && !module.is.visible()) {
                   module.verbose('Down key pressed, showing dropdown');
+<<<<<<< HEAD
+=======
+                  module.select.firstUnfiltered();
+>>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
                   module.show();
                   event.preventDefault();
                 }
@@ -1654,9 +1692,12 @@ $.fn.dropdown = function(parameters) {
             return $module.data(metadata.defaultValue);
           },
           placeholderText: function() {
+<<<<<<< HEAD
             if(settings.placeholder != 'auto' && typeof settings.placeholder == 'string') {
               return settings.placeholder;
             }
+=======
+>>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
             return $module.data(metadata.placeholderText) || '';
           },
           text: function() {
@@ -2406,23 +2447,31 @@ $.fn.dropdown = function(parameters) {
           },
           direction: function($menu) {
             if(settings.direction == 'auto') {
+<<<<<<< HEAD
               // reset position
               module.remove.upward();
 
               if(module.can.openDownward($menu)) {
+=======
+              if(module.is.onScreen($menu)) {
+>>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
                 module.remove.upward($menu);
               }
               else {
                 module.set.upward($menu);
               }
+<<<<<<< HEAD
               if(!module.is.leftward($menu) && !module.can.openRightward($menu)) {
                 module.set.leftward($menu);
               }
+=======
+>>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
             }
             else if(settings.direction == 'upward') {
               module.set.upward($menu);
             }
           },
+<<<<<<< HEAD
           upward: function($currentMenu) {
             var $element = $currentMenu || $module;
             $element.addClass(className.upward);
@@ -2431,6 +2480,12 @@ $.fn.dropdown = function(parameters) {
             var $element = $currentMenu || $menu;
             $element.addClass(className.leftward);
           },
+=======
+          upward: function($menu) {
+            var $element = $menu || $module;
+            $element.addClass(className.upward);
+          },
+>>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
           value: function(value, text, $selected) {
             var
               escapedValue = module.escape.value(value),
@@ -2778,6 +2833,7 @@ $.fn.dropdown = function(parameters) {
           initialLoad: function() {
             initialLoad = false;
           },
+<<<<<<< HEAD
           upward: function($currentMenu) {
             var $element = $currentMenu || $module;
             $element.removeClass(className.upward);
@@ -2786,6 +2842,12 @@ $.fn.dropdown = function(parameters) {
             var $element = $currentMenu || $menu;
             $element.removeClass(className.leftward);
           },
+=======
+          upward: function($menu) {
+            var $element = $menu || $module;
+            $element.removeClass(className.upward);
+          },
+>>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
           visible: function() {
             $module.removeClass(className.visible);
           },
@@ -3082,7 +3144,11 @@ $.fn.dropdown = function(parameters) {
             return $(event.target).closest($icon).length > 0;
           },
           alreadySetup: function() {
+<<<<<<< HEAD
             return ($module.is('select') && $module.parent(selector.dropdown).data(moduleNamespace) !== undefined && $module.prev().length === 0);
+=======
+            return ($module.is('select') && $module.parent(selector.dropdown).length > 0  && $module.prev().length === 0);
+>>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
           },
           animating: function($subMenu) {
             return ($subMenu)
@@ -3090,10 +3156,13 @@ $.fn.dropdown = function(parameters) {
               : $menu.transition    && $menu.transition('is animating')
             ;
           },
+<<<<<<< HEAD
           leftward: function($subMenu) {
             var $selectedMenu = $subMenu || $menu;
             return $selectedMenu.hasClass(className.leftward);
           },
+=======
+>>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
           disabled: function() {
             return $module.hasClass(className.disabled);
           },
@@ -3112,6 +3181,49 @@ $.fn.dropdown = function(parameters) {
           initialLoad: function() {
             return initialLoad;
           },
+<<<<<<< HEAD
+=======
+          onScreen: function($subMenu) {
+            var
+              $currentMenu   = $subMenu || $menu,
+              canOpenDownward = true,
+              onScreen = {},
+              calculations
+            ;
+            $currentMenu.addClass(className.loading);
+            calculations = {
+              context: {
+                scrollTop : $context.scrollTop(),
+                height    : $context.outerHeight()
+              },
+              menu : {
+                offset: $currentMenu.offset(),
+                height: $currentMenu.outerHeight()
+              }
+            };
+            if(module.is.verticallyScrollableContext()) {
+              calculations.menu.offset.top += calculations.context.scrollTop;
+            }
+            onScreen = {
+              above : (calculations.context.scrollTop) <= calculations.menu.offset.top - calculations.menu.height,
+              below : (calculations.context.scrollTop + calculations.context.height) >= calculations.menu.offset.top + calculations.menu.height
+            };
+            if(onScreen.below) {
+              module.verbose('Dropdown can fit in context downward', onScreen);
+              canOpenDownward = true;
+            }
+            else if(!onScreen.below && !onScreen.above) {
+              module.verbose('Dropdown cannot fit in either direction, favoring downward', onScreen);
+              canOpenDownward = true;
+            }
+            else {
+              module.verbose('Dropdown cannot fit below, opening upward', onScreen);
+              canOpenDownward = false;
+            }
+            $currentMenu.removeClass(className.loading);
+            return canOpenDownward;
+          },
+>>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
           inObject: function(needle, object) {
             var
               found = false
@@ -3174,6 +3286,7 @@ $.fn.dropdown = function(parameters) {
                 : false
             ;
             return (overflowY == 'auto' || overflowY == 'scroll');
+<<<<<<< HEAD
           },
           horizontallyScrollableContext: function() {
             var
@@ -3182,6 +3295,8 @@ $.fn.dropdown = function(parameters) {
                 : false
             ;
             return (overflowX == 'auto' || overflowX == 'scroll');
+=======
+>>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
           }
         },
 
@@ -3198,6 +3313,7 @@ $.fn.dropdown = function(parameters) {
             }
             return false;
           },
+<<<<<<< HEAD
           openDownward: function($subMenu) {
             var
               $currentMenu    = $subMenu || $menu,
@@ -3271,6 +3387,8 @@ $.fn.dropdown = function(parameters) {
             $currentMenu.removeClass(className.loading);
             return canOpenRightward;
           },
+=======
+>>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
           click: function() {
             return (hasTouch || settings.on == 'click');
           },
@@ -3372,6 +3490,12 @@ $.fn.dropdown = function(parameters) {
                     queue      : true,
                     onStart    : start,
                     onComplete : function() {
+<<<<<<< HEAD
+=======
+                      if(settings.direction == 'auto') {
+                        module.remove.upward($subMenu);
+                      }
+>>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
                       callback.call(element);
                     }
                   })
@@ -3632,7 +3756,10 @@ $.fn.dropdown.settings = {
   on                     : 'click',    // what event should show menu action on item selection
   action                 : 'activate', // action on item selection (nothing, activate, select, combo, hide, function(){})
 
+<<<<<<< HEAD
   values                 : false,      // specify values to use for dropdown
+=======
+>>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
 
   apiSettings            : false,
   selectOnKeydown        : true,       // Whether selection should occur automatically when keyboard shortcuts used
@@ -3802,7 +3929,10 @@ $.fn.dropdown.settings = {
     selected    : 'selected',
     selection   : 'selection',
     upward      : 'upward',
+<<<<<<< HEAD
     leftward    : 'left',
+=======
+>>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
     visible     : 'visible'
   }
 

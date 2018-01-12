@@ -30,7 +30,11 @@ var
   del            = require('del'),
   jsonEditor     = require('gulp-json-editor'),
   plumber        = require('gulp-plumber'),
+<<<<<<< HEAD
   prompt         = require('prompt-sui'),
+=======
+  prompt         = require('gulp-prompt'),
+>>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
   rename         = require('gulp-rename'),
   replace        = require('gulp-replace'),
   requireDotFile = require('require-dot-file'),
@@ -170,7 +174,11 @@ if(currentConfig && manager.name === 'NPM') {
 // PM that supports Build Tools (NPM Only Now)
 if(manager.name == 'NPM') {
   rootQuestions[0].message = rootQuestions[0].message
+<<<<<<< HEAD
     .replace('{packageMessage}', 'We detected you are using ' + manager.name + ' Nice!')
+=======
+    .replace('{packageMessage}', 'We detected you are using \x1b[92m' + manager.name + '\x1b[0m. Nice! ')
+>>>>>>> c7d664b6cf4327ebc5c8f682e3648b2a99445283
     .replace('{root}', manager.root)
   ;
   // set default path to detected PM root
