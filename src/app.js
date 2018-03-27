@@ -5,10 +5,8 @@ import {
 
 import Frame from 'frame/Frame';
 
-import 'semantic-ui-css/semantic.min.css';
-// require('semantic/dist/semantic.min.js');
-
-import 'semantic/dist/components/dropdown.min.js'
+require('../semantic/dist/semantic.css');
+require('semantic/dist/semantic.min.js');
 
 $.ajaxSetup({
     xhrFields: {withCredentials: true}

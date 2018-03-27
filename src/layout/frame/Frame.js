@@ -188,94 +188,93 @@ export default class Frame extends React.Component{
 
         return (
             <div className={S.layout}>
-                <Nav
+              <Nav
+                {...{
+                  myInfo,
+                  logOut,
+                  initMyPage,
+                  history
+                }}
+              />
+              <Route exact path="/" render={
+                (props)=> (
+                  <Home
                     {...{
-                        myInfo,
-                        logOut,
-                        initMyPage,
-                        history
+                      initMyPage
                     }}
-                />
-                <Route exact path="/" render={
-                    (props)=> (
-                        <Home
-                            {...{
-                                initMyPage
-                            }}
-                            {...props}
-                        />
-                    )
-                }/>
+                    {...props}
+                  />
+                )
+              }/>
 
-                <Route exact path="/sign_in" render={
-                    (props)=>(
-                        myInfo ? (
-                            <Redirect to="/"/>
-                        ) : (
-                            <SignIn
-                                {...{
-                                    signInAjax,
-                                    signInMsg,
-                                    clearLoginMsg
-                                }}
-                            />
-                        )
+              <Route exact path="/sign_in" render={
+                (props)=>(
+                  myInfo ? (
+                    <Redirect to="/"/>
+                  ) : (
+                    <SignIn
+                      {...{
+                        signInAjax,
+                        signInMsg,
+                        clearLoginMsg
+                      }}
+                    />
+                  )
 
-                    )
-                }/>
-                <Route exact path="/sign_up" render={
-                    (props)=>(
-                        myInfo ? (
-                            <Redirect to="/"/>
-                        ) : (
-                            <SignUp
-                                {...{
-                                    signUpAjax,
-                                    signUpMsg,
-                                    clearLoginMsg
-                                }}
-                            />
-                        )
+                )
+              }/>
+              <Route exact path="/sign_up" render={
+                (props)=>(
+                  myInfo ? (
+                    <Redirect to="/"/>
+                  ) : (
+                    <SignUp
+                      {...{
+                        signUpAjax,
+                        signUpMsg,
+                        clearLoginMsg
+                      }}
+                    />
+                  )
 
-                    )
-                }/>
-                <Route exact path="/my_page" render={
-                    (props)=>(
-                        props.location.state ? (
-                            <MyPage
-                                {...{
-                                    myPagePreviews,
-                                    previewsName,
-                                    notebooks,
-                                    changePreviews,
-                                    initMyPage,
-                                    myInfo,
-                                    updateUserIntro
-                                }}
-                                {...props}
-                            />
-                        ) : (
-                            <Redirect to="/"/>
-                        )
+                )
+              }/>
+              <Route exact path="/my_page" render={
+                (props)=>(
+                  props.location.state ? (
+                    <MyPage
+                      {...{
+                        myPagePreviews,
+                        previewsName,
+                        notebooks,
+                        changePreviews,
+                        initMyPage,
+                        myInfo,
+                        updateUserIntro
+                      }}
+                      {...props}
+                    />
+                  ) : (
+                    <Redirect to="/"/>
+                  )
 
 
-                    )
-                }/>
-                <Route path="/write" render={
-                    (props) => (
-                        
-                        myInfo ? (
-                            <Write
-                                {...{
-                                    myInfo
-                                }}
-                            />
-                        ) : (
-                            <Redirect to="/login_hint"/>
-                        )
+                )
+              }/>
+              <Route path="/write" render={
+                (props) => (
+                  myInfo ? (
+                    <Write
+                      {...{
+                        myInfo
+                      }}
+                    />
+                  ) : (
+                    <Redirect to="/login_hint"/>
+                  )
 
-                    )
-                }/>
+                )
+              }/>
 
                 <Route path="/login_hint" component={LoginHint}/>
             </div>

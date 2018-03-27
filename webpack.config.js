@@ -11,7 +11,6 @@ switch (argv.env) {
         break;
     default:
         env = 'webpack.config.dev';
-
 }
 
 console.log(`you are in ${argv.env} mode`);
